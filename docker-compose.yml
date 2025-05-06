@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/nginx.dockerfile
-    container_name: laravel_server_futbol
+    container_name: laravel_server_proyecto_final
     ports:
       - "8080:80"
     volumes:
@@ -21,7 +21,7 @@ services:
     build:
       context: .
       dockerfile: dockerfiles/php.dockerfile
-    container_name: laravel_php_futbol
+    container_name: laravel_php_proyecto_final
     volumes:
       - ./src:/var/www/html:delegated
     networks:
@@ -33,7 +33,7 @@ services:
       retries: 10
   mysql:
     image: mysql:8.0.1
-    container_name: laravel_mysql_futbol
+    container_name: laravel_mysql_proyecto_final
     restart: unless-stopped
     tty: true
     env_file:
@@ -47,7 +47,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     restart: always
-    container_name: laravel_phpmyadmin_futbol
+    container_name: laravel_phpmyadmin_proyecto_final
     depends_on:
       - mysql
     ports:
